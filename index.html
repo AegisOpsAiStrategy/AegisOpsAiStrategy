@@ -16,29 +16,43 @@
             color: var(--white);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             line-height: 1.6;
         }
         .container {
             max-width: 900px;
             margin: auto;
+            padding: 20px;
         }
-        header {
-            text-align: center; 
-            padding: 40px 0;
+        
+        /* Hero Branding Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
         header h1 {
             color: var(--cyan); 
             letter-spacing: 4px; 
-            margin-bottom: 0;
+            margin: 10px 0 0;
             font-size: 2.5rem;
+            text-transform: uppercase;
         }
         header p {
             color: var(--gold); 
             text-transform: uppercase; 
             font-size: 0.9rem;
-            margin-top: 5px;
+            margin-bottom: 30px;
         }
+
+        /* Profile Section Grid */
         .profile-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -53,20 +67,24 @@
             text-align: center;
         }
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 3px solid var(--cyan);
             margin: 0 auto 15px;
             display: block;
             object-fit: cover;
+            object-position: top;
         }
+
+        /* CTA Section */
         .cta-box {
             background: rgba(184, 158, 107, 0.05); 
             border: 1px solid var(--gold);
             border-radius: 15px;
             padding: 40px;
             text-align: center;
+            margin-top: 20px;
         }
         .btn {
             background-color: var(--cyan);
@@ -85,12 +103,15 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
         }
+
         footer {
             text-align: center; 
             font-size: 0.85rem; 
             color: #778899; 
-            padding-top: 40px;
+            padding: 40px 0;
         }
+
+        /* Mobile Optimization */
         @media (max-width: 650px) {
             .profile-grid {
                 grid-template-columns: 1fr;
@@ -101,14 +122,17 @@
 <body>
 
 <div class="container">
-    <header>
-        <h1>AEGIS OPS</h1>
-        <p>AI Strategy & Content Operations</p>
-    </header>
+    <div class="hero-section">
+        <img src="907.png" alt="Aegis Ops Strategy Shield" class="hero-image">
+        <header>
+            <h1>AEGIS OPS</h1>
+            <p>AI Strategy & Content Operations</p>
+        </header>
+    </div>
 
     <div class="profile-grid">
         <div class="card">
-            <img src="1773946228088.png" alt="Laron - Founder" class="profile-img">
+            <img src="987.png" alt="Laron - Founder" class="profile-img">
             <h3 style="color: var(--cyan); margin-bottom: 10px;">Laron</h3>
             <p style="font-size: 0.95rem; font-style: italic; color: #E0E0E0;">
                 "I leverage Project Management precision to build AI engines that scale your brand."
@@ -129,7 +153,10 @@
         <p>Apply for a custom AI Content Pipeline designed for your business.</p>
         
         <a href="https://form.typeform.com/to/gV8PkLGT" class="btn">Start Your Application</a>
-        <p><a href="https://hickory-crayfish-3df.notion.site/Aegis-Ops-Your-30-Day-Growth-Roadmap-327e6c4fa2da80b5a197cce437b74372" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: bold;">View 30-Day Client Portal</a></p>
+
+        <p>
+            <a href="https://hickory-crayfish-3df.notion.site/Aegis-Ops-Your-30-Day-Growth-Roadmap-327e6c4fa2da80b5a197cce437b74372" target="_blank" style="color: var(--cyan); text-decoration: underline; font-weight: bold;">View 30-Day Client Portal</a>
+        </p>
     </div>
 
     <footer>
