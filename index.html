@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Ops & AI Strategy | Enterprise Operations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #0D1B2A;
@@ -8,184 +15,124 @@
             --slate: #778899;
         }
 
-        /* Base Reset */
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--navy);
             color: var(--white);
             font-family: 'Inter', sans-serif;
             margin: 0;
+            padding: 0;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents side-scrolling on mobile */
+            width: 100%;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px; /* Reduced padding for mobile */
-        }
-
-        /* --- Header & Hero Section --- */
+        /* --- Header: Now scrolls away --- */
         header {
             text-align: center;
-            padding: 40px 15px;
-            background: rgba(13, 27, 42, 0.9);
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, var(--dark-blue), var(--navy));
             border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            position: relative; /* It will now disappear when you scroll */
+            width: 100%;
         }
 
         .hero-logo {
-            width: 80px; 
+            width: 80px;
             height: auto;
-            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.4));
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         h1 {
-            font-size: 1.8rem; /* Scaled down for mobile */
+            font-size: 1.8rem;
             font-weight: 900;
-            letter-spacing: -1px;
-            margin: 0 0 5px 0;
-            color: var(--white);
+            margin: 0;
             text-transform: uppercase;
+            letter-spacing: -1px;
         }
-        
+
         .hero-subtitle {
             font-size: 1rem;
             color: var(--gold);
-            font-weight: 700;
-            margin: 0;
+            margin: 5px 0;
         }
 
         .status-terminal {
             font-family: 'JetBrains Mono', monospace;
             color: var(--cyan);
-            font-size: 0.6rem;
-            margin-top: 10px;
-            letter-spacing: 1px;
-            line-height: 1.4;
+            font-size: 0.65rem;
+            margin-top: 15px;
         }
 
-        /* --- Global Typography --- */
+        /* --- Layout --- */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--gold);
             text-transform: uppercase;
             border-left: 4px solid var(--cyan);
             padding-left: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .section-intro {
-            max-width: 100%;
-            margin-bottom: 30px;
-            text-align: left; /* Better for readability on small screens */
-            font-size: 1rem;
-            color: var(--slate);
+            margin-bottom: 25px;
         }
 
-        /* --- Grid Layouts (Mobile First) --- */
-        .values-grid, .team-grid, .pricing-grid, .service-list {
-            display: grid;
-            grid-template-columns: 1fr; /* Default to 1 column for mobile */
-            gap: 20px;
-        }
-
-        /* --- Desktop Responsive Breakpoints --- */
-        @media (min-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: repeat(3, 1fr); }
-            .service-list { grid-template-columns: repeat(2, 1fr); }
-            .section-intro { text-align: center; }
-        }
-
-        @media (min-width: 1024px) {
-            .values-grid { grid-template-columns: repeat(3, 1fr); }
-            .service-list { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* --- Cards & Components --- */
-        .value-card, .profile-card, .pricing-card, .service-item, .case-study-card {
-            background-color: var(--dark-blue);
+        /* --- Components --- */
+        .card {
+            background: var(--dark-blue);
             padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            margin-bottom: 15px;
-        }
-
-        /* --- Pricing Specifics --- */
         .price {
             font-size: 2rem;
             color: var(--cyan);
             font-weight: 900;
-        }
-
-        .pricing-card.highlight {
-            border: 2px solid var(--cyan);
-            transform: scale(1.02);
-        }
-
-        /* --- Founder's Alert --- */
-        .beta-alert {
-            background: rgba(184, 158, 107, 0.1);
-            border: 1px dashed var(--gold);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            margin: 40px 0;
-            font-size: 0.9rem;
-        }
-
-        /* --- CTA Section --- */
-        .cta-section {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--dark-blue);
+            margin: 10px 0;
         }
 
         .btn {
             background: var(--cyan);
             color: var(--navy);
-            padding: 18px 30px;
+            padding: 18px;
             text-decoration: none;
             font-weight: 900;
             border-radius: 4px;
+            display: block;
+            text-align: center;
             text-transform: uppercase;
-            display: block; /* Full width on mobile */
-            width: 100%;
-            max-width: 320px;
-            margin: 10px auto;
-            transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
-        @media (min-width: 768px) {
-            .btn { display: inline-block; width: auto; }
+        .beta-alert {
+            background: rgba(184, 158, 107, 0.1);
+            border: 1px dashed var(--gold);
+            padding: 20px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
         }
 
-        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 30px 15px;
+            padding: 40px 20px;
             font-size: 0.7rem;
             color: var(--slate);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
+</head>
+<body>
+
+    <header>
+        <img src="shield.png" alt="Aegis Logo" class="hero-logo" onerror="this.style.display='none'">
+        <h1>AI Ops & Strategy</h1>
