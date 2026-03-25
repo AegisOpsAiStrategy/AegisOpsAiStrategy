@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegis Ops & AI Strategy | Enterprise Operations</title>
+    <title>Aegis Ops & AI Strategy | Enterprise-Grade Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,112 +22,119 @@
             color: var(--white);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
             line-height: 1.6;
-            width: 100%;
+            overflow-x: hidden;
         }
 
-        /* --- Header: Now scrolls away --- */
+        /* --- Header: Set to Relative so it disappears on scroll --- */
         header {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(to bottom, var(--dark-blue), var(--navy));
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, #1B263B 0%, #0D1B2A 100%);
             border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-            position: relative; /* It will now disappear when you scroll */
-            width: 100%;
+            position: relative; /* Fixed: It will now scroll away */
         }
 
         .hero-logo {
-            width: 80px;
+            width: 120px;
             height: auto;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.4));
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            margin: 0;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            margin: 0;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: var(--gold);
-            margin: 5px 0;
+            font-weight: 700;
         }
 
         .status-terminal {
             font-family: 'JetBrains Mono', monospace;
             color: var(--cyan);
-            font-size: 0.65rem;
-            margin-top: 15px;
+            font-size: 0.7rem;
+            margin-top: 20px;
+            letter-spacing: 1px;
         }
 
-        /* --- Layout --- */
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: auto;
             padding: 40px 20px;
         }
 
-        section {
-            margin-bottom: 60px;
-        }
-
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--gold);
             text-transform: uppercase;
             border-left: 4px solid var(--cyan);
-            padding-left: 15px;
-            margin-bottom: 25px;
+            padding-left: 20px;
+            margin-bottom: 30px;
         }
 
-        /* --- Components --- */
-        .card {
+        /* Grid System - Mobile First */
+        .values-grid, .team-grid, .pricing-grid, .service-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* Desktop Grid */
+        @media (min-width: 768px) {
+            .values-grid, .team-grid, .service-list { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+            h1 { font-size: 3rem; }
+        }
+
+        /* Components */
+        .card, .profile-card, .pricing-card, .value-card, .case-study-card {
             background: var(--dark-blue);
-            padding: 25px;
-            border-radius: 8px;
+            padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
             margin-bottom: 20px;
         }
 
-        .price {
-            font-size: 2rem;
-            color: var(--cyan);
-            font-weight: 900;
-            margin: 10px 0;
+        .price { font-size: 2.5rem; font-weight: 900; color: var(--cyan); }
+        
+        .beta-alert {
+            background: rgba(184, 158, 107, 0.1);
+            border: 1px dashed var(--gold);
+            padding: 30px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .btn {
             background: var(--cyan);
             color: var(--navy);
-            padding: 18px;
+            padding: 20px;
             text-decoration: none;
             font-weight: 900;
-            border-radius: 4px;
             display: block;
             text-align: center;
+            border-radius: 4px;
             text-transform: uppercase;
-            margin-top: 20px;
-        }
-
-        .beta-alert {
-            background: rgba(184, 158, 107, 0.1);
-            border: 1px dashed var(--gold);
-            padding: 20px;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            font-size: 0.7rem;
+            padding: 40px;
+            font-size: 0.75rem;
             color: var(--slate);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
@@ -135,4 +142,76 @@
 
     <header>
         <img src="shield.png" alt="Aegis Logo" class="hero-logo" onerror="this.style.display='none'">
-        <h1>AI Ops & Strategy</h1>
+        <h1>AI Operations & Strategy</h1>
+        <p class="hero-subtitle">Enterprise Systems That Scale</p>
+        <div class="status-terminal">WHARTON, TX // REMOTE OPS // GLOBAL</div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>Our Mission</h2>
+            <p>Empowering entrepreneurs through smart social media strategies and AI-driven growth.</p>
+        </section>
+
+        <section id="leadership">
+            <h2>Executive Leadership</h2>
+            <div class="team-grid">
+                <div class="profile-card">
+                    <img src="brittney-profile.png" alt="Brittney" class="profile-img">
+                    <h3>Brittney Flores</h3>
+                    <p>Strategy & AI Operations Specialist.</p>
+                </div>
+                <div class="profile-card">
+                    <img src="laron-profile.jpg" alt="Laron" class="profile-img">
+                    <h3>Laron</h3>
+                    <p>Logistics & Financial Compliance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="offer">
+            <div class="beta-alert">
+                <strong>FOUNDER'S PRICING PHASE:</strong> We are seeking 5 Anchor Clients.
+                <span id="slots" style="display:block; color:var(--cyan); margin-top:15px;">[ AVAILABLE SLOTS: 3 / 5 ]</span>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Service Matrix</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$250</div>
+                    <p>Account setup & basic engagement.</p>
+                </div>
+                <div class="pricing-card" style="border-color: var(--cyan);">
+                    <h3>Growth</h3>
+                    <div class="price">$500</div>
+                    <p>Full AI content engine integration.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <div class="price">$1,000</div>
+                    <p>Advanced analytics & priority support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" style="text-align:center;">
+            <a href="https://calendly.com/aegisstrategicoperation" class="btn">Book Strategy Call</a>
+            <a href="mailto:contact@aegisops.ai" style="display:block; margin-top:20px; color:var(--gold); text-decoration:none;">contact@aegisops.ai</a>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 AEGIS OPS & AI STRATEGY | SYSTEMS ARCHITECTED FOR THE REMOTE ECONOMY
+    </footer>
+
+    <script>
+        setTimeout(() => {
+            const slots = document.getElementById('slots');
+            if(slots) slots.innerText = "[ AVAILABLE SLOTS: 2 / 5 ]";
+        }, 3000);
+    </script>
+</body>
+</html>
