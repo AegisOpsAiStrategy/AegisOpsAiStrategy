@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aegis Strategic Operation | Enterprise-Grade Execution</title>
+  <title>Aegis Strategic Operations | Growth Ops (Content + Automation)</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
@@ -16,13 +16,12 @@
       --white:#FFFFFF;
       --slate:#94A3B8;
 
-      --card: rgba(27,38,59,.75);
+      --card: rgba(27,38,59,.78);
       --border: rgba(255,255,255,.10);
       --border-strong: rgba(0,229,255,.35);
 
       --shadow: 0 18px 50px rgba(0,0,0,.35);
       --radius: 14px;
-      --radius-sm: 10px;
 
       --max: 1120px;
     }
@@ -32,9 +31,10 @@
       height: 100%;
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, rgba(0,229,255,.12), transparent 60%),
-                  radial-gradient(900px 500px at 20% 10%, rgba(184,158,107,.10), transparent 55%),
-                  var(--navy);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(0,229,255,.12), transparent 60%),
+        radial-gradient(900px 500px at 20% 10%, rgba(184,158,107,.10), transparent 55%),
+        var(--navy);
       color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
@@ -43,27 +43,26 @@
     a { color: inherit; }
     .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
 
-    /* Accessibility */
-    .skip-link{
-      position:absolute; left:-999px; top: 10px;
-      background: var(--cyan); color: var(--navy);
-      padding: 10px 14px; border-radius: 8px; font-weight: 800;
-      z-index: 9999;
-    }
-    .skip-link:focus{ left: 10px; }
-
-    /* Layout */
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
     .section { padding: 64px 0; }
     .section-tight { padding: 40px 0; }
 
-    /* Top Nav */
+    /* Accessibility */
+    .skip-link{
+      position:absolute; left:-999px; top: 10px;
+      background: var(--cyan); color: var(--navy);
+      padding: 10px 14px; border-radius: 10px; font-weight: 900;
+      z-index: 9999;
+    }
+    .skip-link:focus{ left: 10px; }
+
+    /* Nav */
     .nav {
       position: sticky;
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: rgba(13,27,42,.70);
+      background: rgba(13,27,42,.72);
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .nav-inner {
@@ -74,6 +73,7 @@
     .brand {
       display:flex; align-items:center; gap: 10px; text-decoration:none;
       font-weight: 900; letter-spacing: .6px;
+      white-space: nowrap;
     }
     .brand-badge{
       width: 30px; height: 30px; border-radius: 10px;
@@ -83,8 +83,8 @@
       box-shadow: 0 0 0 6px rgba(0,229,255,.05);
     }
     .nav-links{
-      display:flex; gap: 14px; flex-wrap: wrap; justify-content:flex-end;
-      font-weight: 700;
+      display:flex; gap: 10px; flex-wrap: wrap; justify-content:flex-end;
+      font-weight: 800;
       color: rgba(255,255,255,.85);
     }
     .nav-links a{
@@ -108,7 +108,7 @@
       text-transform: uppercase;
       letter-spacing: .8px;
       border: 1px solid transparent;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       cursor: pointer;
       user-select:none;
     }
@@ -124,28 +124,37 @@
       color: var(--white);
     }
     .btn-ghost:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06); }
+    .btn:focus-visible{ outline: 3px solid rgba(0,229,255,.35); outline-offset: 2px; }
+    .btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; pointer-events: none; }
 
-    /* Header/Hero */
+    /* Hero */
     header.hero {
-      padding: 72px 0 36px;
+      padding: 70px 0 36px;
       border-bottom: 1px solid rgba(0,229,255,.18);
       background: radial-gradient(circle at 50% 10%, rgba(27,38,59,.95), rgba(13,27,42,.75));
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 28px;
       align-items: center;
     }
     @media (max-width: 900px){
       .hero-grid{ grid-template-columns: 1fr; }
     }
-
     .hero-logo {
       width: 110px;
       height: auto;
       filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.35));
       margin-bottom: 18px;
+    }
+    .kicker{
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-size: .92rem;
+      margin: 0 0 10px;
     }
     h1{
       font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -156,20 +165,12 @@
     }
     .subtitle{
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: rgba(255,255,255,.78);
-      max-width: 62ch;
-    }
-    .hero-kicker{
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      font-size: .92rem;
-      margin: 0 0 10px;
+      max-width: 70ch;
     }
     .status-terminal{
-      margin-top: 16px;
+      margin-top: 14px;
       color: var(--cyan);
       font-size: .82rem;
       letter-spacing: 2px;
@@ -177,7 +178,7 @@
     }
     .hero-actions{
       display:flex; gap: 12px; flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     /* Section headers */
@@ -193,15 +194,26 @@
     .lede{
       color: var(--slate);
       margin: 0 0 22px;
-      max-width: 85ch;
+      max-width: 95ch;
     }
 
-    /* Cards + Grids */
+    /* Grid + Cards */
     .grid {
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 18px;
     }
+    .col-4{ grid-column: span 4; }
+    .col-5{ grid-column: span 5; }
+    .col-6{ grid-column: span 6; }
+    .col-7{ grid-column: span 7; }
+    .col-8{ grid-column: span 8; }
+    .col-12{ grid-column: span 12; }
+
+    @media (max-width: 900px){
+      .col-4,.col-5,.col-6,.col-7,.col-8{ grid-column: span 12; }
+    }
+
     .card{
       background: var(--card);
       border: 1px solid var(--border);
@@ -219,345 +231,4 @@
       opacity: .9;
     }
     .card > * { position: relative; }
-
-    .card:hover{ border-color: rgba(0,229,255,.22); transform: translateY(-2px); transition: transform .15s ease, border-color .15s ease; }
-    .card-title{ margin: 0 0 6px; color: var(--white); font-weight: 900; font-size: 1.1rem; }
-    .muted{ color: var(--slate); margin: 0; }
-    .pill{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,229,255,.22);
-      color: rgba(0,229,255,.95);
-      background: rgba(0,229,255,.06);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-    }
-
-    .col-4{ grid-column: span 4; }
-    .col-6{ grid-column: span 6; }
-    .col-8{ grid-column: span 8; }
-    .col-12{ grid-column: span 12; }
-
-    @media (max-width: 900px){
-      .col-4,.col-6,.col-8{ grid-column: span 12; }
-    }
-
-    /* Leadership */
-    .leader {
-      display:flex; gap: 16px; align-items:center;
-    }
-    .profile-img {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      border: 3px solid var(--gold);
-      object-fit: cover;
-      flex: 0 0 auto;
-    }
-    .leader h3{ margin:0; color: var(--cyan); font-size: 1.1rem; }
-    .leader .role{ margin: 4px 0 0; color: rgba(255,255,255,.82); font-weight: 700; }
-    .leader .bio{ margin: 10px 0 0; color: var(--slate); }
-
-    /* Pricing */
-    .price {
-      font-size: 2.15rem;
-      font-weight: 900;
-      color: var(--cyan);
-      margin: 10px 0 10px;
-      letter-spacing: -1px;
-    }
-    .price span { font-size: 1rem; color: var(--slate); font-weight: 700; margin-left: 6px; }
-    .features{
-      list-style: none;
-      padding: 0;
-      margin: 14px 0 18px;
-      color: var(--slate);
-    }
-    .features li{
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .features li::before{
-      content:"✓";
-      color: var(--cyan);
-      margin-right: 10px;
-      font-weight: 900;
-    }
-    .highlight{
-      border-color: var(--border-strong);
-      box-shadow: 0 18px 65px rgba(0,229,255,.13);
-    }
-
-    /* CTA */
-    .cta {
-      background: linear-gradient(180deg, rgba(27,38,59,.85), rgba(13,27,42,.85));
-      border-top: 1px solid rgba(0,229,255,.18);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .cta-box{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 20px; flex-wrap: wrap;
-      padding: 26px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(27,38,59,.55);
-      box-shadow: var(--shadow);
-    }
-    .cta-box h2{ margin: 0; font-size: 1.3rem; color: var(--white); text-transform: none; letter-spacing: 0; border: none; padding: 0; }
-    .cta-box p{ margin: 6px 0 0; color: var(--slate); max-width: 70ch; }
-
-    footer{
-      padding: 38px 0;
-      color: var(--slate);
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: .8rem;
-      text-align:center;
-    }
-  </style>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Sticky Nav -->
-  <div class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Aegis Strategic Operation Home">
-        <span class="brand-badge">A</span>
-        <span>Aegis Strategic Operation</span>
-      </a>
-      <div class="nav-links">
-        <a href="#approach">Approach</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#services">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <header id="top" class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <img src="shield.png" alt="Aegis Shield" class="hero-logo">
-        <p class="hero-kicker">Blueprints Architected • Human Executed</p>
-        <h1>Operational Systems Built for Scale</h1>
-        <p class="subtitle">
-          Aegis Strategic Operation delivers enterprise-grade execution for brands that want consistent growth,
-          clean operations, and modern AI-enabled workflows—without losing the human touch.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://calendly.com/aegisstrategicoperation" target="_blank" rel="noopener noreferrer">
-            Book Free Strategy Call
-          </a>
-          <a class="btn btn-ghost" href="https://form.typeform.com/to/gV8PkLGT" target="_blank" rel="noopener noreferrer">
-            Start Application
-          </a>
-        </div>
-
-        <div class="status-terminal mono">WHARTON, TX // REMOTE-FIRST // GLOBAL DELIVERY</div>
-      </div>
-
-      <div class="card">
-        <div class="pill mono">Enterprise Standards</div>
-        <p class="muted" style="margin-top:12px;">
-          Ethical AI usage, privacy-first workflows, professional execution, and scalable systems.
-        </p>
-        <ul class="features" style="margin-top:10px;">
-          <li>Process + content systems</li>
-          <li>AI-enhanced production</li>
-          <li>Clear deliverables & timelines</li>
-          <li>Community-friendly pricing options</li>
-        </ul>
-        <a class="btn btn-ghost" href="#services">View Service Matrix</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- Approach -->
-    <section id="approach" class="section">
-      <div class="wrap">
-        <h2 class="h2">The Aegis Approach</h2>
-        <p class="lede">
-          I leverage advanced systems to create the right blueprint for your brand, then execute personally.
-          Professional results, human-led execution—supporting local growth with global standards.
-        </p>
-
-        <div class="grid">
-          <div class="card col-6">
-            <h3 class="card-title">System Design</h3>
-            <p class="muted">We map goals → audience → content → workflow so execution is repeatable and measurable.</p>
-          </div>
-          <div class="card col-6">
-            <h3 class="card-title">Human Execution</h3>
-            <p class="muted">AI helps accelerate; final output stays aligned, accurate, and brand-safe.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership -->
-    <section id="leadership" class="section-tight">
-      <div class="wrap">
-        <h2 class="h2">Executive Leadership</h2>
-        <div class="grid">
-          <div class="card col-6">
-            <div class="leader">
-              <img src="brittney-profile.png" alt="Brittney Flores" class="profile-img">
-              <div>
-                <h3>Brittney Flores</h3>
-                <p class="role">Strategy & AI Operations</p>
-              </div>
-            </div>
-            <p class="bio">
-              PMI-standard project management + high-level workflows built for consistency, scale, and clarity.
-            </p>
-          </div>
-
-          <div class="card col-6">
-            <div class="leader">
-              <img src="laron-profile.jpg" alt="Laron" class="profile-img">
-              <div>
-                <h3>Laron</h3>
-                <p class="role">Logistics & Compliance</p>
-              </div>
-            </div>
-            <p class="bio">
-              Accounting-driven integrity to support financial clarity and operational excellence.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section">
-      <div class="wrap">
-        <h2 class="h2">Service Matrix</h2>
-        <p class="lede">Choose a plan, then customize deliverables to your industry, voice, and growth stage.</p>
-
-        <div class="grid">
-          <!-- Starter -->
-          <div class="card col-4">
-            <h3 class="card-title">Starter</h3>
-            <div class="price">\$300 <span>/mo</span></div>
-            <ul class="features">
-              <li>Social media setup + optimization</li>
-              <li>2 custom posts/week</li>
-              <li>Engagement strategy guidance</li>
-              <li>Monthly check-in</li>
-            </ul>
-
-            <!-- PAYMENT OPTION: swap href with your Stripe Payment Link -->
-            <a class="btn btn-ghost" href="#contact">Customize Starter</a>
-          </div>
-
-          <!-- Growth (highlight) -->
-          <div class="card col-4 highlight">
-            <div class="pill mono">Most Selected</div>
-            <h3 class="card-title" style="margin-top:10px;">Growth</h3>
-            <div class="price">\$650 <span>/mo</span></div>
-            <ul class="features">
-              <li>4 posts/week</li>
-              <li>Content ecosystem planning</li>
-              <li>Professional visual design</li>
-              <li>Performance adjustments</li>
-            </ul>
-
-            <a class="btn btn-primary" href="#contact">Get Growth Plan</a>
-          </div>
-
-          <!-- Pro -->
-          <div class="card col-4">
-            <h3 class="card-title">Pro</h3>
-            <div class="price">\$1,250 <span>/mo</span></div>
-            <ul class="features">
-              <li>Full channel oversight</li>
-              <li>Deep analytics & reporting</li>
-              <li>Priority project management</li>
-              <li>Systems + automation support</li>
-            </ul>
-
-            <a class="btn btn-ghost" href="#contact">Talk Pro</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solutions -->
-    <section id="solutions" class="section-tight">
-      <div class="wrap">
-        <h2 class="h2">Specialized Solutions</h2>
-        <div class="grid">
-          <div class="card col-4">
-            <h3 class="card-title">Website Revamp</h3>
-            <p class="muted">Modernize visuals, structure, and conversion flow for a clean digital presence.</p>
-          </div>
-          <div class="card col-4">
-            <h3 class="card-title">Website Customization</h3>
-            <p class="muted">Targeted updates as your brand evolves (pages, sections, UX, performance).</p>
-          </div>
-          <div class="card col-4">
-            <h3 class="card-title">Community Pricing</h3>
-            <p class="muted">Flexible models designed to support local businesses and early-stage founders.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="section-tight">
-      <div class="wrap">
-        <h2 class="h2">Transparency</h2>
-        <p class="lede">
-          View the process: deliverables, timeline, and how we build momentum in 30 days.
-        </p>
-        <a class="btn btn-ghost" href="https://hickory-crayfish-3df.notion.site/Aegis-Ops-Your-30-Day-Growth-Roadmap-327e6c4fa2da80b5a197cce437b74372" target="_blank" rel="noopener noreferrer">
-          View 30-Day Roadmap (Notion)
-        </a>
-      </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section id="contact" class="section cta">
-      <div class="wrap">
-        <div class="cta-box">
-          <div>
-            <h2>Professionalize Your Digital Footprint</h2>
-            <p>Book a call for a scoped recommendation, then choose a plan and optional add-ons.</p>
-          </div>
-          <div style="display:flex; gap:12px; flex-wrap: wrap;">
-            <a class="btn btn-primary" href="https://calendly.com/aegisstrategicoperation" target="_blank" rel="noopener noreferrer">Book Free Strategy Call</a>
-            <a class="btn btn-ghost" href="https://form.typeform.com/to/gV8PkLGT" target="_blank" rel="noopener noreferrer">Start Application Form</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 AEGIS STRATEGIC OPERATION | WHARTON, TEXAS<br>
-    SYSTEMS ARCHITECTED FOR THE REMOTE ECONOMY
-  </footer>
-
-  <script>
-    // Smooth scroll for in-page nav anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (!id || id === '#') return;
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  </script>
-</body>
-    </html>
+    .card:hover{ border-color<span class="ml-2" /><span class="inline-block w-3 h-3 rounded-full bg-neutral-a12 align-middle mb-[0.1rem]" />
